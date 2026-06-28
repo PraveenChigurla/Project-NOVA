@@ -1,0 +1,27 @@
+{
+  "platform": {
+    "version": "0.1.0",
+    "environment": "development",
+    "session_timeout_seconds": 3600
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "write_to_file": true,
+    "log_file_path": "logs/nova.log"
+  },
+  "memory": {
+    "provider": "sqlite",
+    "database_path": "data/nova_memory.db",
+    "short_term_retention_days": 7
+  },
+  "ai": {
+    "default_provider": "openai",
+    "default_model": "gpt-4o",
+    "max_context_tokens": 128000
+  },
+  "security": {
+    "permission_level": "RESTRICTED",
+    "require_confirmation_for_destructive_actions": true
+  }
+}
