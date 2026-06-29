@@ -37,3 +37,20 @@ An RFC must prove that the proposed change:
 3.  Maintains deterministic execution.
 
 No new architectural primitives shall be introduced after Version 1.0 unless they proceed through this Governance process.
+
+---
+
+## 6. The NOVA Oath
+Every contributor to Project NOVA accepts the following responsibility:
+
+*   We will not sacrifice determinism for convenience.
+*   We will not sacrifice explainability for novelty.
+*   We will not sacrifice sovereignty for automation.
+*   We will not sacrifice security for speed.
+*   We will not sacrifice long-term architecture for short-term implementation.
+
+We recognize that artificial intelligence will continue to evolve. Models will change. Hardware will change. Operating systems will change. Programming languages will change. 
+
+The principles of trustworthy cognition must remain.
+
+Every contribution shall strengthen the platform, preserve the Constitution, and respect the sovereignty of the user. This is the responsibility of every contributor to Project NOVA.

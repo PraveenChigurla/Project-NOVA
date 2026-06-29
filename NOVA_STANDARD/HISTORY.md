@@ -48,3 +48,5 @@ This document traces the 30-sprint journey of Project NOVA, from a simple concep
 
 ## Phase 6: Certification (Sprint 30)
 *   **Sprint 30:** Project NOVA Standard v1.0 (Freezing contracts, defining Governance, and transitioning to an Open Cognitive Computing Standard).
+
+> **Research established the principles. Engineering will prove them.**
