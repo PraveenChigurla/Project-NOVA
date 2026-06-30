@@ -61,6 +61,15 @@ class CommandRouter:
         command_lower = text.lower().strip()
         
         # Intercept the North Star Request
+        if "workspace history" in command_lower:
+            from nova.core.goal_engine import GoalEngine
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            config_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "config"))
+            engine = GoalEngine(config_dir)
+            print(engine.get_history())
+            return
+            
         if "prepare" in command_lower and "workspace" in command_lower:
             from nova.core.goal_engine import GoalEngine
             import os

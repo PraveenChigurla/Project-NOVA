@@ -69,7 +69,72 @@ class GoalEngine:
             res = open_website(site["name"], site["url"])
             report.append(f"✓ Open {site['name']} (Done)")
             
+        import json
+        from datetime import datetime
+        
         duration = round(time.time() - start_time, 2)
         report.append(f"\nWorkspace ready. (Total Time: {duration}s)")
         
+        # Determine status for history
+        status = "Workspace ready"
+        sub_status = f"{duration} sec"
+        if "Halted - Merge Conflicts" in "\n".join(report):
+            status = "Workspace halted"
+            sub_status = "Git conflicts"
+            
+        # Log to history
+        history_file = os.path.join(self.config_dir, "history.json")
+        history = []
+        if os.path.exists(history_file):
+            try:
+                with open(history_file, "r") as f:
+                    history = json.load(f)
+            except:
+                pass
+                
+        history.append({
+            "timestamp": datetime.now().isoformat(),
+            "status": status,
+            "sub_status": sub_status
+        })
+        
+        with open(history_file, "w") as f:
+            json.dump(history[-10:], f) # Keep last 10
+        
         return "\n".join(report)
+
+    def get_history(self) -> str:
+        """Retrieves and formats the workspace history."""
+        import json
+        from datetime import datetime
+        history_file = os.path.join(self.config_dir, "history.json")
+        if not os.path.exists(history_file):
+            return "No workspace history found."
+            
+        try:
+            with open(history_file, "r") as f:
+                history = json.load(f)
+        except:
+            return "Error reading workspace history."
+            
+        report = [f"Last {len(history)} Sessions\n"]
+        # Reverse to show newest first
+        for entry in reversed(history):
+            try:
+                dt = datetime.fromisoformat(entry["timestamp"])
+                day_str = dt.strftime("%A") 
+                # If today, replace with 'Today'
+                if dt.date() == datetime.now().date():
+                    day_str = "Today"
+                elif (datetime.now().date() - dt.date()).days == 1:
+                    day_str = "Yesterday"
+                    
+                report.append(day_str)
+                report.append(entry["status"])
+                report.append(entry["sub_status"])
+                report.append("")
+            except:
+                continue
+                
+        return "\n".join(report)
+

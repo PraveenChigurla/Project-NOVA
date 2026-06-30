@@ -3,44 +3,60 @@
 Unlike infrastructure backlogs organized by technical subsystems, the NOVA Product Backlog is organized entirely by natural language sentences. Every completed sentence represents a fully integrated, seamless product feature where the AI Kernel, Planner, and Providers work invisibly to accomplish the user's intent.
 
 ## The North Star KPI
-**Metric:** Number of times the user reaches for the mouse per day.
-**Target:** Decrease monthly. (e.g., 137 → 48 → 12 → 3).
+Every completed goal increments the system heartbeat:
+- Commands Executed
+- Mouse Clicks Saved
+- Keyboard Presses Saved
+- Time Saved
+- Applications Controlled
+- Successful Goals
+- Skipped Actions
 
 ---
 
-## Phase 1: Workspace & Core Navigation
-
-- [ ] "Prepare my development workspace." *(The North Star Request)*
+### Experience 1: Workspace & Core Navigation [ACTIVE]
+- [x] "Prepare my development workspace." 
+- [ ] "workspace history" (Feature Request)
 - [ ] "Review today's work."
 - [ ] "Open Chrome."
 - [ ] "Open VS Code."
 - [ ] "Open Project NOVA."
 - [ ] "Shutdown Computer."
 
-## Phase 2: Visual Perception & GUI Automation
+### Experience 2: Application Control
+- [ ] "Open Chrome"
+- [ ] "Open VS Code"
+- [ ] "Open Spotify"
+- [ ] "Switch to WhatsApp"
+- [ ] "Close Edge"
 
-- [ ] "Click Login."
-- [ ] "Click Ravi."
-- [ ] "Scroll Down."
-- [ ] "Find Save."
-- [ ] "Type Hello."
-- [ ] "Fill this login form."
+### Experience 3: Screen Interaction
+- [ ] "Click Login"
+- [ ] "Click Ravi"
+- [ ] "Click Submit"
+- [ ] "Scroll until Settings"
+- [ ] "Find Password"
 
-## Phase 3: Developer Workflows
+### Experience 4: Developer Workflows
+- [ ] "Run tests"
+- [ ] "Git status"
+- [ ] "Commit changes"
+- [ ] "Push to GitHub"
+- [ ] "Explain this traceback"
 
-- [ ] "Run Tests."
-- [ ] "Explain Error."
-- [ ] "git status"
-- [ ] "Commit Changes."
-- [ ] "Push GitHub."
-- [ ] "Review PR."
+### Experience 5: Browser Automation
+- [ ] "Open Gmail"
+- [ ] "Summarize unread emails"
+- [ ] "Download invoices"
+- [ ] "Fill this form"
+- [ ] "Open the third search result"
 
-## Phase 4: Data Extraction & Communication
-
-- [ ] "Read Screen."
-- [ ] "Summarize Folder."
-- [ ] "Open Gmail."
-- [ ] "Summarize Emails."
+### Experience 6: File Management
+- [ ] "Rename"
+- [ ] "Move"
+- [ ] "Compress"
+- [ ] "Delete"
+- [ ] "Find duplicates"
 
 ---
-*Backlog initialized: July 2026. The goal is to make the keyboard and mouse optional.*
+*Backlog initialized: July 2026. The guiding question: "What sentence do I wish I could say to my computer?"*
