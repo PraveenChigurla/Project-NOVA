@@ -54,3 +54,15 @@ We recognize that artificial intelligence will continue to evolve. Models will c
 The principles of trustworthy cognition must remain.
 
 Every contribution shall strengthen the platform, preserve the Constitution, and respect the sovereignty of the user. This is the responsibility of every contributor to Project NOVA.
+
+---
+
+## 7. Engineering Rule #1
+> **Every engineering task must produce evidence.**
+
+No implementation is considered complete unless it produces measurable evidence that it satisfies the NOVA Standard.
+
+From this point onward, every Pull Request, every benchmark, every optimization, and every bug fix must answer three questions:
+1. What changed?
+2. What evidence proves it works?
+3. Which NOVA Standard or constitutional principle does it strengthen?
