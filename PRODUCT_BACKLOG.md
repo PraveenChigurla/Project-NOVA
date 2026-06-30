@@ -12,8 +12,6 @@ Every completed goal increments the system heartbeat:
 - Successful Goals
 - Skipped Actions
 
-> **Every Experience must be expressed first as a sentence a user naturally says. Only after the sentence is accepted should the implementation be designed.**
-
 ---
 
 ## 🚀 The 10 Experience Roadmap
@@ -25,26 +23,32 @@ Every completed goal increments the system heartbeat:
 - Git status checks (no auto-resolves)
 - Goal Reporting
 
-### Experience 02: Universal Computer Control [NEXT]
+### Experience 02: Universal Computer Control [✅ COMPLETE]
 **"Open anything. Control my system."**
 - Universal Application Control (Open, Close, Switch)
 - Window Management (Minimize, Maximize, Move, Resize, Focus)
 - System Controls (Volume, Brightness, WiFi, Bluetooth, Sleep, Shutdown)
 - Avoid duplicate launches intelligently.
 
-### Experience 03: Screen Interaction
+### Experience 03: Semantic Screen Interaction [✅ COMPLETE]
 **"Click anything. Find anything."**
 - Semantic Interaction ("Click Login", "Choose Personal")
 - Scrolling via semantic intent ("Scroll until Settings")
 - Target Resolution via OCR and Vision (No hardcoded coordinates)
 - Spatial Reasoning ("Click Login below Password")
 
-### Experience 04: Developer Assistant
+### Experience 04: Work Assistant [NEXT]
 **"Review my code. Run my tests."**
-- Run tests and summarize failures
-- Git automation (Status, Commit, Push, Pull)
-- Explain tracebacks
-- Search TODOs and read docs
+- Project Catalog (Launch and manage arbitrary projects: ML, Web, Scripts)
+- Run tests and automatically summarize tracebacks and failures
+- Git automation (Status, Commit, Push, Pull, Branching)
+- Deep repository reviews ("Review my repository", Find TODOs/FIXMEs)
+- Terminal Operation wrapping (capture stdout/stderr seamlessly)
+
+### Experience 04.5: Ask My Computer
+**"What's happening on my machine?"**
+- Observational system queries ("What applications are open?", "What's using my CPU?")
+- Unobtrusive system health monitoring
 
 ### Experience 05: Browser Assistant
 **"Browse for me. Read this page."**
