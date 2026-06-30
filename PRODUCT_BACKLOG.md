@@ -12,6 +12,8 @@ Every completed goal increments the system heartbeat:
 - Successful Goals
 - Skipped Actions
 
+> **Every Experience must be expressed first as a sentence a user naturally says. Only after the sentence is accepted should the implementation be designed.**
+
 ---
 
 ## 🚀 The 10 Experience Roadmap
@@ -23,7 +25,7 @@ Every completed goal increments the system heartbeat:
 - Git status checks (no auto-resolves)
 - Goal Reporting
 
-### Experience 02: Desktop Control [NEXT]
+### Experience 02: Universal Computer Control [NEXT]
 **"Open anything. Control my system."**
 - Universal Application Control (Open, Close, Switch)
 - Window Management (Minimize, Maximize, Move, Resize, Focus)

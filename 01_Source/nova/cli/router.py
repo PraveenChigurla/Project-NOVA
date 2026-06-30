@@ -82,6 +82,17 @@ class CommandRouter:
             report = engine.run_workspace_prep("development")
             print(report)
             return
+            
+        # Experience 02: Computer Control
+        if any(command_lower.startswith(prefix) for prefix in ["open ", "close ", "launch ", "kill "]) or "shutdown computer" in command_lower:
+            from nova.core.computer_control import ComputerControlGoal
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            config_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "config"))
+            
+            engine = ComputerControlGoal(config_dir)
+            print(engine.process_command(text))
+            return
 
         # Stub for the AIKernel handoff.
         # This prevents breaking the current setup before full wiring.

@@ -1,0 +1,3 @@
+default_browser: "chrome"
+default_editor: "vscode"
+default_terminal: "windows_terminal"

@@ -1,0 +1,41 @@
+chrome:
+  aliases:
+    - chrome
+    - google chrome
+    - browser
+    - internet
+    - web browser
+  executable:
+    windows: ["chrome.exe"]
+    linux: ["google-chrome"]
+    macos: ["Google Chrome"]
+
+vscode:
+  aliases:
+    - vscode
+    - visual studio code
+    - code
+    - editor
+  executable:
+    windows: ["code.exe", "code.cmd"]
+    linux: ["code"]
+    macos: ["Visual Studio Code"]
+
+windows_terminal:
+  aliases:
+    - terminal
+    - command prompt
+    - shell
+  executable:
+    windows: ["wt.exe"]
+    linux: []
+    macos: []
+
+spotify:
+  aliases:
+    - spotify
+    - music
+  executable:
+    windows: ["Spotify.exe"]
+    linux: ["spotify"]
+    macos: ["Spotify"]
