@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "iteration": 73,
+    "error": "Engine returned failure: Execution ended with state rolled_back",
+    "seed": "NOVA_QUAL_42"
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+    "cpu_count": 12,
+    "total_ram_gb": 15.34
+  },
+  "runtime_snapshot": {
+    "memory_mb": 38.38,
+    "capability_state": "MOCK_SUITE",
+    "permission_snapshot": "GRANTED",
+    "timeline": "AVAILABLE_IN_EVENT_BUS_LOG"
+  },
+  "plan": {
+    "plan_id": "plan_NOVA_QUAL_42_83",
+    "intent": "Benchmark execution",
+    "strategy": "sequential",
+    "steps": [
+      {
+        "step_id": "plan_NOVA_QUAL_42_83_step_0",
+        "capability_id": "mock.succeed",
+        "action": "execute",
+        "parameters": {
+          "iteration": 83,
+          "step": 0
+        },
+        "dependencies": [],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      },
+      {
+        "step_id": "plan_NOVA_QUAL_42_83_step_1",
+        "capability_id": "mock.succeed",
+        "action": "execute",
+        "parameters": {
+          "iteration": 83,
+          "step": 1
+        },
+        "dependencies": [
+          "plan_NOVA_QUAL_42_83_step_0"
+        ],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      },
+      {
+        "step_id": "plan_NOVA_QUAL_42_83_step_2",
+        "capability_id": "mock.succeed",
+        "action": "execute",
+        "parameters": {
+          "iteration": 83,
+          "step": 2
+        },
+        "dependencies": [
+          "plan_NOVA_QUAL_42_83_step_1"
+        ],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      }
+    ],
+    "created_at": "2026-06-30T17:16:06.134440Z"
+  }
+}

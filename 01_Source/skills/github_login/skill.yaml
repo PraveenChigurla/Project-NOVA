@@ -1,0 +1,14 @@
+id: "github_login"
+version: "1.0.0"
+author: "Praveen"
+description: "Types GitHub credentials securely from the Vault."
+
+permissions:
+  - "os.keyboard.press"
+  
+requires:
+  - "com.nova.desktop.keyboard"
+
+parameters: {}
+    
+entrypoint: "workflow.yaml"

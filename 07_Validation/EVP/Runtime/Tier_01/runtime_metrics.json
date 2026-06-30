@@ -1,0 +1,20 @@
+{
+  "config": {
+    "iterations": 1000,
+    "warmup": 100,
+    "seed": "NOVA_QUAL_42",
+    "output_dir": "07_Validation/EVP/Runtime\\Tier_01"
+  },
+  "metrics": {
+    "total_executions": 1000,
+    "successes": 1000,
+    "failures": 0,
+    "total_time_seconds": 0.8492129000078421,
+    "throughput_hz": 1177.56100971943,
+    "latency_avg_ms": 0.7781963998859283,
+    "latency_median_ms": 0.680800003465265,
+    "latency_p95_ms": 1.2021000147797167,
+    "latency_p99_ms": 1.5184000076260418,
+    "peak_memory_mb": 35.2578125
+  }
+}

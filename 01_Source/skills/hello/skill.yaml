@@ -1,0 +1,18 @@
+id: "hello_world"
+version: "1.0.0"
+author: "NOVA Platform"
+description: "Demonstrates portable YAML skills by typing a greeting."
+
+permissions:
+  - "os.keyboard.press"
+  
+requires:
+  - "com.nova.desktop.keyboard"
+
+parameters:
+  name:
+    type: "string"
+    description: "The name of the user to greet."
+    default: "World"
+    
+entrypoint: "workflow.yaml"

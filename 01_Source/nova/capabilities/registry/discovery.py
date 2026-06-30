@@ -50,6 +50,18 @@ class CapabilityDiscovery:
             )
             process_cap = ProcessCapability(process_meta, permission_manager=self.permission_manager, provider_registry=self.provider_registry)
             capabilities.append(process_cap)
+            
+            from nova.capabilities.vision.screen import ScreenCapability
+            screen_meta = CapabilityMetadata(
+                id="com.nova.vision.screen",
+                name="Screen Capability",
+                version="1.0.0",
+                description="Acquires screen captures",
+                tags=["vision", "system"],
+                supported_intents=["capture_full_desktop", "capture_active_monitor", "capture_monitor", "capture_region"]
+            )
+            screen_cap = ScreenCapability(screen_meta, permission_manager=self.permission_manager, provider_registry=self.provider_registry)
+            capabilities.append(screen_cap)
         
         logger.info(f"Discovered {len(capabilities)} built-in capabilities.")
         return capabilities

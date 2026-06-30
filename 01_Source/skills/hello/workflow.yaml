@@ -1,0 +1,6 @@
+steps:
+  - action: "type_human"
+    capability: "com.nova.desktop.keyboard"
+    parameters:
+      text: "Hello ${name} from a portable YAML Skill!\n"
+      profile: "natural"

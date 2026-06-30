@@ -1,0 +1,6 @@
+steps:
+  - action: "type_human"
+    capability: "com.nova.desktop.keyboard"
+    parameters:
+      text: "Username: ${vault:github.main.username}\nPassword: [HIDDEN FOR DEMO]\n"
+      profile: "natural"

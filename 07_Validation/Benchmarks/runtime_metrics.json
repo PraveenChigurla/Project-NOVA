@@ -1,0 +1,21 @@
+{
+  "config": {
+    "iterations": 50,
+    "warmup": 5,
+    "inject_failure": true,
+    "fail_at": 25,
+    "seed": "FAIL_TEST"
+  },
+  "metrics": {
+    "total_executions": 50,
+    "successes": 49,
+    "failures": 1,
+    "total_time_seconds": 0.7513565999979619,
+    "throughput_hz": 66.54629772352519,
+    "latency_avg_ms": 14.861070001497865,
+    "latency_median_ms": 15.294000011635944,
+    "latency_p95_ms": 15.970500011462718,
+    "latency_p99_ms": 16.277199989417568,
+    "peak_memory_mb": 34.03125
+  }
+}

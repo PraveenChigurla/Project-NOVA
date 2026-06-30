@@ -35,6 +35,7 @@ class PermissionScope(str, Enum):
     OS_MOUSE_MOVE = "os.mouse.move"
     OS_MOUSE_CLICK = "os.mouse.click"
     OS_KEYBOARD_TYPE = "os.keyboard.type"
+    OS_KEYBOARD_PRESS = "os.keyboard.press"
     
     BROWSER_NAVIGATE = "browser.navigate"
     BROWSER_DOWNLOAD = "browser.download"

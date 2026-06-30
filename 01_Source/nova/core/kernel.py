@@ -16,6 +16,8 @@ from nova.intelligence.intents.models import Intent, IntentAlias, IntentResult
 from nova.intelligence.intents.registry import IntentRegistry
 from nova.intelligence.intents.parser import RuleIntentParser
 from nova.intelligence.planning.planner import RuleBasedPlanner
+from nova.skills.loader import SkillRegistry, SkillLoader
+from nova.security.vault.core import SecretVault
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +38,11 @@ class NovaKernel:
         
         self.permission_manager = PermissionManager()
         self.execution_engine = ExecutionEngine(self.registry, self.permission_manager)
+        
+        self.secret_vault = SecretVault()
+        
+        self.skill_registry = SkillRegistry()
+        self.skill_loader = SkillLoader(self.skill_registry)
         
         # Intelligence Pipeline
         self.intent_registry = IntentRegistry()

@@ -24,3 +24,6 @@ class PluginRegistry:
         
     def get_capabilities(self) -> Dict[str, Any]:
         return self._capabilities
+        
+    async def get(self, capability_id: str) -> Any:
+        return self._capabilities.get(capability_id)

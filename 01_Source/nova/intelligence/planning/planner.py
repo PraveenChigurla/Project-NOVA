@@ -26,22 +26,22 @@ class Planner(ABC):
     """
     
     @abstractmethod
-    async def generate_plan(self, intent: IntentResult, context: Optional[PlannerContext] = None) -> ExecutionPlan:
+    async def generate_plan(self, cognitive_package, context: Optional[PlannerContext] = None) -> ExecutionPlan:
         """
-        Parses the intent and constructs an ExecutionPlan.
+        Parses the enriched cognitive package and constructs an ExecutionPlan.
         Must be implemented by subclasses.
         """
         pass
         
-    async def plan(self, intent: IntentResult, context: Optional[PlannerContext] = None) -> PlannerResult:
+    async def plan(self, cognitive_package, context: Optional[PlannerContext] = None) -> PlannerResult:
         """
         Template method that wraps plan generation with validation and profiling.
         """
         start_time = time.perf_counter()
         
         try:
-            logger.info(f"Planner beginning generation for intent: '{intent.intent_name}'")
-            execution_plan = await self.generate_plan(intent, context)
+            logger.info(f"Planner beginning generation for Goal: '{cognitive_package.goal.id}'")
+            execution_plan = await self.generate_plan(cognitive_package, context)
             
             # Validate the graph mathematically
             graph = TaskGraph(execution_plan.steps)
@@ -67,40 +67,81 @@ class Planner(ABC):
 
 class RuleBasedPlanner(Planner):
     """
-    A simple planner for Phase 1 that uses hardcoded rules to generate static plans.
+    A simple planner that generates static plans, now enriched by the Cognitive Layer.
     """
-    async def generate_plan(self, intent: IntentResult, context: Optional[PlannerContext] = None) -> ExecutionPlan:
+    async def generate_plan(self, cognitive_package, context: Optional[PlannerContext] = None) -> ExecutionPlan:
+        goal = cognitive_package.goal
+        world = cognitive_package.world
+        constraints = cognitive_package.constraints
         
-        if intent.intent_name == "desktop.process.launch":
-            app_name = intent.entities.get("application", "notepad.exe")
-            # If the user didn't specify extension, append .exe for windows
-            if not app_name.endswith(".exe"):
-                app_name += ".exe"
-                
+        if constraints.ask_user_confirmation:
+            logger.info("Constraints mandate user confirmation before planning. Emitting ASK_USER step.")
             step = PlanStep(
-                capability_id="com.nova.desktop.process",
-                action="launch_process",
-                parameters={"executable": app_name},
+                capability_id="com.nova.core",
+                action="ask_user",
+                parameters={"prompt": "Constraints dictate confirmation required. Proceed?"},
                 dependencies=[]
             )
-            
             return ExecutionPlan(
-                intent=intent.original_input,
+                intent=goal.raw_intent,
                 strategy=ExecutionStrategy.SEQUENTIAL,
                 steps=[step]
             )
+
+        if goal.id == "prepare_workspace":
+            steps = []
             
-        elif intent.intent_name == "complex_workflow":
-            # Generate a DAG to test parallel execution
-            step1 = PlanStep(step_id="step1", capability_id="com.nova.vision", action="scan", dependencies=[])
-            step2 = PlanStep(step_id="step2", capability_id="com.nova.vision", action="analyze", dependencies=["step1"])
-            step3 = PlanStep(step_id="step3", capability_id="com.nova.desktop", action="click", dependencies=["step1"])
-            step4 = PlanStep(step_id="step4", capability_id="com.nova.browser", action="navigate", dependencies=["step2", "step3"])
+            # Utilize Memory!
+            if cognitive_package.memory:
+                mem = cognitive_package.memory
+                
+                # Semantic
+                for fact in mem.relevant_facts:
+                    if fact.key == "preferred_ide":
+                        logger.info(f"Memory: User prefers IDE '{fact.value}' (confidence: {fact.confidence})")
+                        
+                # Episodic
+                if mem.recent_episodes:
+                    logger.info(f"Memory: Found {len(mem.recent_episodes)} recent episodes related to workspace prep.")
+                    for ep in mem.recent_episodes:
+                        logger.info(f"  - Episode: {ep.summary}")
             
+            # Use WorldGraph to avoid redundant work!
+            world = cognitive_package.world
+            
+            # Check if IDE is running
+            ide_apps = [e for e in world.get_entities_by_type("Application") if "code" in e.attributes.get("name", "").lower() or "vscode" in e.attributes.get("name", "").lower()]
+            if not ide_apps:
+                steps.append(PlanStep(
+                    step_id="launch_ide",
+                    capability_id="com.nova.desktop.process",
+                    action="launch_process",
+                    parameters={"executable": "code.exe"},
+                    dependencies=[]
+                ))
+            else:
+                logger.info("Planner: IDE is already running in World Model. Skipping launch step.")
+                
+            # Check if Browser is running
+            browser_apps = [e for e in world.get_entities_by_type("Application") if "chrome" in e.attributes.get("name", "").lower() or "msedge" in e.attributes.get("name", "").lower()]
+            if not browser_apps:
+                steps.append(PlanStep(
+                    step_id="launch_browser",
+                    capability_id="com.nova.desktop.process",
+                    action="launch_process",
+                    parameters={"executable": "chrome.exe"},
+                    dependencies=[]
+                ))
+            else:
+                logger.info("Planner: Browser is already running in World Model. Skipping launch step.")
+                
+            if not steps:
+                logger.info("Planner: Workspace is already prepared. No steps needed.")
+                
             return ExecutionPlan(
-                intent=intent.original_input,
+                intent=goal.raw_intent,
                 strategy=ExecutionStrategy.PARALLEL,
-                steps=[step1, step2, step3, step4]
+                steps=steps
             )
             
-        raise ValueError(f"RuleBasedPlanner does not understand intent: '{intent.intent_name}'")
+        raise ValueError(f"RuleBasedPlanner does not understand goal: '{goal.id}'")

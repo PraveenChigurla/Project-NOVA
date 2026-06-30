@@ -44,6 +44,17 @@ class ProviderDiscovery:
             )
             desktop_prov = WindowsDesktopProvider(desktop_meta)
             providers.append(desktop_prov)
+            
+        from nova.providers.vision.screen_provider import ScreenCaptureProvider
+        screen_meta = ProviderMetadata(
+            id="com.nova.provider.screen",
+            name="Screen Capture Provider",
+            version="1.0.0",
+            type=ProviderType.MOCK, # Using mock/custom for now until VISION is added to ProviderType Enum
+            description="Provides high-performance screen capture natively"
+        )
+        screen_prov = ScreenCaptureProvider(screen_meta)
+        providers.append(screen_prov)
         
         logger.info(f"Discovered {len(providers)} built-in providers.")
         return providers

@@ -1,0 +1,236 @@
+{
+  "config": {
+    "iterations": 100000,
+    "warmup": 100,
+    "seed": "NOVA_CERT_42",
+    "output_dir": "07_Validation/EVP/Runtime\\EVP-CERT-001",
+    "checkpoint_interval": 10000,
+    "use_resilience_profile": true
+  },
+  "metrics": {
+    "run_uuid": "EVP-RUN-2026-815414",
+    "total_executions": 100000,
+    "successes": 39093,
+    "expected_failures": 60907,
+    "unexpected_failures": 0,
+    "total_time_seconds": 552.6891204999993,
+    "throughput_hz": 180.93354164368816,
+    "latency_avg_ms": 5.420761170974292,
+    "latency_median_ms": 1.0046999959740788,
+    "latency_p95_ms": 55.381499987561256,
+    "latency_p99_ms": 64.11590002244338,
+    "peak_memory_mb": 55.46875,
+    "checkpoints": [
+      {
+        "iteration": 10000,
+        "telemetry": {
+          "iteration": 10000,
+          "timestamp": "2026-06-30T17:49:58.578059Z",
+          "heap_size_mb": 37.73,
+          "tracked_objects": 33635,
+          "gc_collections": {
+            "0": 429,
+            "1": 38,
+            "2": 1
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.0637000086717308,
+          "p95_ms": 55.676499992841855,
+          "p99_ms": 64.52749998425134
+        }
+      },
+      {
+        "iteration": 20000,
+        "telemetry": {
+          "iteration": 20000,
+          "timestamp": "2026-06-30T17:50:46.652056Z",
+          "heap_size_mb": 39.84,
+          "tracked_objects": 33667,
+          "gc_collections": {
+            "0": 787,
+            "1": 71,
+            "2": 1
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 0.9485000045970082,
+          "p95_ms": 55.048300011549145,
+          "p99_ms": 64.34640000225045
+        }
+      },
+      {
+        "iteration": 30000,
+        "telemetry": {
+          "iteration": 30000,
+          "timestamp": "2026-06-30T17:51:36.980287Z",
+          "heap_size_mb": 41.94,
+          "tracked_objects": 33777,
+          "gc_collections": {
+            "0": 1145,
+            "1": 103,
+            "2": 2
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 0.901699997484684,
+          "p95_ms": 55.81530000199564,
+          "p99_ms": 64.12120000459254
+        }
+      },
+      {
+        "iteration": 40000,
+        "telemetry": {
+          "iteration": 40000,
+          "timestamp": "2026-06-30T17:52:25.629039Z",
+          "heap_size_mb": 43.89,
+          "tracked_objects": 34070,
+          "gc_collections": {
+            "0": 1503,
+            "1": 136,
+            "2": 2
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 0.9259000071324408,
+          "p95_ms": 54.43119999836199,
+          "p99_ms": 64.58770000608638
+        }
+      },
+      {
+        "iteration": 50000,
+        "telemetry": {
+          "iteration": 50000,
+          "timestamp": "2026-06-30T17:53:15.487562Z",
+          "heap_size_mb": 45.89,
+          "tracked_objects": 33565,
+          "gc_collections": {
+            "0": 1863,
+            "1": 168,
+            "2": 2
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 0.9497999853920192,
+          "p95_ms": 54.63849997613579,
+          "p99_ms": 63.5181000106968
+        }
+      },
+      {
+        "iteration": 60000,
+        "telemetry": {
+          "iteration": 60000,
+          "timestamp": "2026-06-30T17:54:11.385204Z",
+          "heap_size_mb": 47.95,
+          "tracked_objects": 33966,
+          "gc_collections": {
+            "0": 2220,
+            "1": 201,
+            "2": 3
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.0062999790534377,
+          "p95_ms": 56.060200004139915,
+          "p99_ms": 63.33870001253672
+        }
+      },
+      {
+        "iteration": 70000,
+        "telemetry": {
+          "iteration": 70000,
+          "timestamp": "2026-06-30T17:55:07.934540Z",
+          "heap_size_mb": 49.66,
+          "tracked_objects": 34079,
+          "gc_collections": {
+            "0": 2578,
+            "1": 234,
+            "2": 3
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.032100000884384,
+          "p95_ms": 55.1096000126563,
+          "p99_ms": 63.93699999898672
+        }
+      },
+      {
+        "iteration": 80000,
+        "telemetry": {
+          "iteration": 80000,
+          "timestamp": "2026-06-30T17:56:07.119844Z",
+          "heap_size_mb": 51.78,
+          "tracked_objects": 33760,
+          "gc_collections": {
+            "0": 2937,
+            "1": 266,
+            "2": 4
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.05489999987185,
+          "p95_ms": 55.3053000185173,
+          "p99_ms": 64.4476999877952
+        }
+      },
+      {
+        "iteration": 90000,
+        "telemetry": {
+          "iteration": 90000,
+          "timestamp": "2026-06-30T17:57:08.168562Z",
+          "heap_size_mb": 53.01,
+          "tracked_objects": 34113,
+          "gc_collections": {
+            "0": 3294,
+            "1": 299,
+            "2": 4
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.06969999615103,
+          "p95_ms": 55.75980001594871,
+          "p99_ms": 63.79680000827648
+        }
+      },
+      {
+        "iteration": 100000,
+        "telemetry": {
+          "iteration": 100000,
+          "timestamp": "2026-06-30T17:58:10.196515Z",
+          "heap_size_mb": 54.91,
+          "tracked_objects": 34004,
+          "gc_collections": {
+            "0": 3654,
+            "1": 331,
+            "2": 4
+          },
+          "event_queue_depth": 0,
+          "active_tasks": 0
+        },
+        "latency": {
+          "p50_ms": 1.121399982366711,
+          "p95_ms": 55.47309998655692,
+          "p99_ms": 64.08539999392815
+        }
+      }
+    ]
+  }
+}

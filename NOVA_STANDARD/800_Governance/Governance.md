@@ -66,3 +66,67 @@ From this point onward, every Pull Request, every benchmark, every optimization,
 1. What changed?
 2. What evidence proves it works?
 3. Which NOVA Standard or constitutional principle does it strengthen?
+
+---
+
+## 8. Engineering Rule #2
+> **Every engineering failure must be reproducible.**
+
+No failure is considered resolved until a deterministic trace can replay the exact condition that caused the fault.
+
+---
+
+## 9. Engineering Rule #3
+> **Long-running validation must produce progressive evidence, not only terminal evidence.**
+
+In large-scale validation (e.g. endurance runs), state must be check-pointed progressively to identify trends (e.g. latency drift, memory leaks) before total failure occurs.
+
+---
+
+## 10. Engineering Rule #4
+> **A successful benchmark must be explainable, not merely successful.**
+
+Passing a benchmark is insufficient for certification. The underlying systemic behavior (heap growth, latency distribution, queuing dynamics, garbage collection impacts) must be analyzed, understood, and proven repeatable before authorization to advance is granted.
+
+---
+
+## 11. Engineering Rule #5
+> **Validation shall represent realistic operating conditions, not ideal operating conditions.**
+
+Synthetic success proves correctness. Operational diversity proves robustness. Validation tiers beyond fundamental correctness must execute a deterministic mix of edge cases (timeouts, permission failures, rollbacks, and capacity constraints) to budget failure thresholds.
+
+---
+
+## 12. Engineering Rule #6
+> **The validation system shall be validated with the same rigor as the runtime it certifies.**
+
+Never assume the benchmark is correct. Never assume the dashboard is correct. Never assume the certification logic is correct. Evidence pipelines deserve engineering too.
+
+---
+
+## 13. Engineering Rule #7
+> **No code changes are permitted during a certification run except to correct defects that invalidate the certification process itself.**
+
+Not runtime improvements. Not optimizations. Certification must evaluate one frozen configuration.
+
+---
+
+## 14. Version 1.0 Freeze
+Following the successful completion of the Engineering Validation Program (EVP) and Runtime Certification (EVP-CERT-001), **Project NOVA Version 1.0 is officially frozen.**
+
+The following contracts are frozen and may only evolve through the formal Platform Governance process:
+* Runtime contracts
+* Goal contracts
+* Capability contracts
+* Provider contracts
+* Agent contracts
+* Permission contracts
+* Federation protocol
+* Knowledge package format
+* SDK interfaces
+
+---
+
+## 15. The Final Principle
+
+> **Project NOVA is not defined by the intelligence it contains, but by the discipline with which that intelligence is governed.**

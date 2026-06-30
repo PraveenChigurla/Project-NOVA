@@ -70,7 +70,7 @@ class ExecutionEngine:
                 
                 # Check for critical failures in the layer
                 for step, result in zip(layer, layer_results):
-                    if isinstance(result, Exception):
+                    if isinstance(result, BaseException):
                         # A step threw an unhandled exception (e.g., cancelled or total failure)
                         raise result
                         
@@ -148,6 +148,9 @@ class ExecutionEngine:
         except asyncio.TimeoutError:
             error_msg = f"Step {step.step_id} timed out after {step.timeout_ms}ms"
             logger.error(error_msg)
+        except asyncio.CancelledError:
+            error_msg = f"Step {step.step_id} was cancelled"
+            logger.warning(error_msg)
         except Exception as e:
             error_msg = str(e)
             
@@ -186,6 +189,8 @@ class ExecutionEngine:
             required_scope = PermissionScope.OS_PROCESS_START
         elif action == "terminate_process":
             required_scope = PermissionScope.OS_PROCESS_KILL
+        elif action in ["capture_full_desktop", "capture_active_monitor", "capture_monitor", "capture_region"]:
+            required_scope = PermissionScope.OS_WINDOW_CAPTURE
             
         if required_scope:
             perm_req = PermissionRequest(capability_id=capability_id, scope=required_scope)

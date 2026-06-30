@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "run_uuid": "EVP-RUN-2026-850c10",
+    "iteration": 5,
+    "error": "[Unknown] 1 validation error for ExecutionResult\nstep_results.1\n  Input should be a valid dictionary or instance of StepResult [type=model_type, input_value=CancelledError(''), input_type=CancelledError]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type",
+    "seed": "NOVA_QUAL_42"
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+    "cpu_count": 12,
+    "total_ram_gb": 15.34
+  },
+  "runtime_snapshot": {
+    "memory_mb": 38.66,
+    "capability_state": "MOCK_SUITE",
+    "permission_snapshot": "GRANTED",
+    "timeline": "AVAILABLE_IN_EVENT_BUS_LOG"
+  },
+  "plan": {
+    "plan_id": "plan_NOVA_QUAL_42_105",
+    "intent": "Benchmark execution",
+    "strategy": "sequential",
+    "steps": [
+      {
+        "step_id": "plan_NOVA_QUAL_42_105_step_0",
+        "capability_id": "mock.succeed",
+        "action": "execute",
+        "parameters": {
+          "iteration": 105,
+          "step": 0,
+          "task_id": "plan_NOVA_QUAL_42_105_step_0"
+        },
+        "dependencies": [],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      },
+      {
+        "step_id": "plan_NOVA_QUAL_42_105_step_1",
+        "capability_id": "mock.cancel",
+        "action": "execute",
+        "parameters": {
+          "iteration": 105,
+          "step": 1,
+          "task_id": "plan_NOVA_QUAL_42_105_step_1"
+        },
+        "dependencies": [
+          "plan_NOVA_QUAL_42_105_step_0"
+        ],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      },
+      {
+        "step_id": "plan_NOVA_QUAL_42_105_step_2",
+        "capability_id": "mock.retry",
+        "action": "execute",
+        "parameters": {
+          "iteration": 105,
+          "step": 2,
+          "task_id": "plan_NOVA_QUAL_42_105_step_2"
+        },
+        "dependencies": [
+          "plan_NOVA_QUAL_42_105_step_1"
+        ],
+        "timeout_ms": 30000,
+        "retry_policy": {
+          "max_retries": 0,
+          "backoff_ms": 1000
+        },
+        "rollback_policy": null,
+        "human_approval_required": false
+      }
+    ],
+    "created_at": "2026-06-30T17:33:05.436844Z"
+  }
+}
