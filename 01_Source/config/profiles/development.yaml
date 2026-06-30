@@ -1,0 +1,23 @@
+name: "Development Workspace"
+description: "Primary configuration for core platform development."
+preferred_terminal: "windows_terminal"
+
+applications:
+  - name: "VS Code"
+    process_name: "Code.exe"
+    launch_command: "code"
+    
+repositories:
+  - name: "Project NOVA"
+    path: "c:\\Users\\hp\\Documents\\PRAVEEN\\Project NOVA"
+    check_git: true
+    activate_env: true
+
+websites:
+  - name: "GitHub"
+    url: "https://github.com/PraveenChigurla/Project-NOVA"
+  - name: "Task Tracker"
+    url: "https://jira.com"
+
+post_checks:
+  - "Summarize yesterday's commits"

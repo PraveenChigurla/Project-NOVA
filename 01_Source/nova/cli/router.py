@@ -58,6 +58,22 @@ class CommandRouter:
             print(f"{i + 1}: {cmd}")
 
     def _route_to_runtime(self, text: str):
+        command_lower = text.lower().strip()
+        
+        # Intercept the North Star Request
+        if "prepare" in command_lower and "workspace" in command_lower:
+            from nova.core.goal_engine import GoalEngine
+            import os
+            
+            # Find config dir relative to router.py
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            config_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "config"))
+            
+            engine = GoalEngine(config_dir)
+            report = engine.run_workspace_prep("development")
+            print(report)
+            return
+
         # Stub for the AIKernel handoff.
         # This prevents breaking the current setup before full wiring.
         print(f"[Runtime Handoff] Processing intent: '{text}'...")
