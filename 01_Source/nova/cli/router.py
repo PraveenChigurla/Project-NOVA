@@ -93,6 +93,18 @@ class CommandRouter:
             engine = ComputerControlGoal(config_dir)
             print(engine.process_command(text))
             return
+            
+        # Experience 03: Screen Interaction
+        screen_intents = ["click", "select", "choose", "double-click", "right-click", "scroll", "what do you see", "describe this screen", "summarize this window"]
+        if any(q in command_lower for q in screen_intents):
+            from nova.core.screen_interaction import ScreenInteractionGoal
+            import os
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            config_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "config"))
+            
+            engine = ScreenInteractionGoal(config_dir)
+            print(engine.process_command(text))
+            return
 
         # Stub for the AIKernel handoff.
         # This prevents breaking the current setup before full wiring.
